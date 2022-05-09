@@ -3,6 +3,7 @@ import fetch from 'node-fetch';
 import FormData from 'form-data';
 import fs from 'fs';
 import { setImageUrlManifest } from './file-uri';
+import path from 'path';
 
 async function sleep(ms: number): Promise<void> {
   console.log('waiting');
