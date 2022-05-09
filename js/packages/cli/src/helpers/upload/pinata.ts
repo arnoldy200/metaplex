@@ -56,9 +56,11 @@ export async function pinataUpload(
     animationUrl,
   );
 
-  fs.writeFileSync('tempJson.json', JSON.stringify(manifestJson));
+  const filenameJson = path.basename(image).replace(path.extname(image),".json");
+    
+  fs.writeFileSync(filenameJson, JSON.stringify(manifestJson));
 
-  const metadataCid = await uploadMedia('tempJson.json', jwt);
+  const metadataCid = await uploadMedia(filenameJson, jwt);
 
   await sleep(500);
 
